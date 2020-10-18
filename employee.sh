@@ -25,5 +25,23 @@ case $emp in
         ;;
      *)
 esac
+emp=$(( RANDOM%2 ))
+emrph=20
+fulltime=1
+absent=0
+sum=0
+for (( i=1; i<=20; i++ ))
+do
+case $emp in
+     $fulltime)
+        dailywage=$((8*20))
+        sum=$((dailywage + sum))
+        ;;
+     $absent)
+        dailywage=0
+        ;;
+     *)
+esac
+done
 
 

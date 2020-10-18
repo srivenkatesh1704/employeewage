@@ -11,4 +11,19 @@ case  $empcheck in
           ;;
       *)
 esac
+emp=$(( RANDOM%2 ))
+emrph=20
+fulltime=1
+absent=0
+case $emp in
+     $fulltime)
+        dailywage=$((8*20))
+        echo $dailywage
+        ;;
+     $absent)
+        dailywage=0
+        ;;
+     *)
+esac
+
 

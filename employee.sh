@@ -81,5 +81,36 @@ case $emp in
 esac
 done
 echo $sum
+#! /bin/bash -x
+echo "Dailywage  Totalwage"
+fulltime=1
+overtime=2
+absent=0
+totalwage=0
+declare -A Dailywage
+declare -A Totalwage
+for (( i=1; i<=20; i++ ))
+do
+empcheck=$((RANDOM%3))
+case $empcheck in
+     $fulltime)
+          echo "Day $i"
+          Dailywage[$i]=$((8*20))
+          Totalwage[$i]=$((sum+Dailywage[$i]))
+          echo $Dailywage[$i] $Totalwage[$i]
+          ;;
+     $overtime)
+          echo "Day $i"
+          Dailywage[$i]=$((12*20))
+          Totalwage[$i]=$((sum+Dailywage))
+          echo $Dailywage[$i] $Totalwage[$i]
+          ;;
+     $absent)
+          ;;
+     *)
+esac
+done
+echo ${!Dailywage[@]} ${!Totalwage[@]}
+
 
 

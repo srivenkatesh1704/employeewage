@@ -111,6 +111,22 @@ case $empcheck in
 esac
 done
 echo ${!Dailywage[@]} ${!Totalwage[@]}
-
-
+function workhours(){
+totalhours=0
+emp=$1
+for (( i=0; i<20; i++ ))
+do
+if [ $n -eq 1 ]
+then
+totalhours=$((totalhours+8))
+elif [ $n -eq 2 ]
+then
+totalhours=$((totalhours+12))
+fi
+echo $totalhours
+}
+for (( j=0; j<20; j++ ))
+do
+workhours $(( RANDOM%3 ))
+done
 
